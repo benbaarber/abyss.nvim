@@ -42,23 +42,24 @@ local spec = {
   editor = {
     cursor = palette.heavyyellow,
     cursorline = palette.darkblue,
-    cursor_selection = palette.darkred,
+    cursor_selection = palette.bg00,
     title = palette.white,
     match = palette.yellow,
-    match_selected = palette.heavyyellow,
+    match_selected = palette.darkred,
     nontext = palette.darkgrey,
     linenr = palette.lowgrey,
   },
   syntax = {
-    identifier = palette.fg1,
+    identifier = palette.fg0,
     structure = palette.heavyyellow,
     statement = palette.darkgrey,
-    constant = palette.fg0,
+    constant = palette.pink,
     special = palette.darkgrey,
     comment = palette.midblue,
     string = palette.darkgreen,
     regex = palette.pink,
-    type = palette.purple,
+    type = palette.heavyyellow,
+    primitivetype = palette.purple,
     number = palette.pink,
     func = palette.yellow,
     bracket = palette.fg0,
@@ -81,7 +82,7 @@ local spec = {
   dirtree = {
     rootname = palette.white,
     dirname = palette.heavyyellow,
-    curline = palette.heavyyellow,
+    curlinebg = palette.bg00,
   },
   terminal = {
     color0 = palette.bg0,
@@ -102,30 +103,19 @@ local spec = {
     color15 = palette.yellow,
   },
   lualine = {
-    basebg_b = palette.bg1,
+    basefg_a = palette.black,
+    basebg_b = palette.darkblue,
     basebg_c = palette.bg1,
-    base_fg = palette.fg0,
+    basefg_b = palette.fg0,
+    basefg_c = palette.fg0,
 
-    normalfg = palette.white,
-    normalbg_a = palette.bg1,
-
-    visualfg = palette.shinyblue,
-    visualbg_a = palette.bg1,
-
-    replacefg = palette.red,
-    replacebg_a = palette.bg1,
-
-    insertfg = palette.darkgreen,
-    insertbg_a  = palette.bg1,
-
-    commandfg = palette.purple,
-    commandbg_a = palette.bg1,
-
-    terminalfg = palette.yellow,
-    terminalbg_a = palette.bg1,
-
-    inactivefg = palette.midblue,
-    inactivebg_a = palette.bg1,
+    normal = palette.shinyblue,
+    visual = palette.orange,
+    replace = palette.purple,
+    insert  = palette.heavyyellow,
+    command = palette.pink,
+    terminal = palette.green,
+    inactive = palette.midblue,
 
   },
 }

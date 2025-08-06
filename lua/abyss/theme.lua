@@ -31,9 +31,10 @@ function M.get(user_opts, spec)
     PreProc = { link = "Statement" },
     Operator = { fg = spec.syntax.statement },
 
-    Type = { fg = spec.syntax.type, italic = true },
+    PrimitiveType = { fg = spec.syntax.primitivetype, italic = true },
+    Type = { link = "Structure" },
     StorageClass = { link = "Statement" }, -- Volatile keywords
-    Structure = { fg = spec.syntax.structure, underline = true },
+    Structure = { fg = spec.syntax.structure },
 
     Special = { fg = spec.syntax.special },
     SpecialChar = { link = "Special" },
@@ -77,9 +78,9 @@ function M.get(user_opts, spec)
     diffIndexLine = { link = "diffLine" },
 
     -- Neovim v0.10 diff highlights
-    Added = { link = "DiffAdd" },
-    Changed = { link = "DiffChange" },
-    Removed = { link = "DiffDelete" },
+    Added = { bg = spec.diff.added },
+    Changed = { bg = spec.diff.changed },
+    Removed = { bg = spec.diff.deleted },
 
     healthError = { fg = spec.diagnostics.error },
     healthSuccess = { fg = spec.diagnostics.ok },
@@ -301,7 +302,7 @@ function M.get(user_opts, spec)
     groups.NeoTreeDirectoryName = { fg = spec.dirtree.dirname }
     groups.NeoTreeDirectoryIcon = { fg = spec.dirtree.dirname }
     groups.NeoTreeGitUntracked = { fg = spec.diff.untracked, italic = true }
-    groups.NeoTreeCursorLine = { fg = spec.dirtree.curline, bg = none, underline = true }
+    groups.NeoTreeCursorLine = { bg = spec.dirtree.curlinebg }
 
     -- notify
     groups.NotifyERROR = { fg = spec.diagnostics.error }
@@ -320,11 +321,11 @@ function M.get(user_opts, spec)
     groups.DashboardHeader = { link = "Title" }
     groups.DashboardCenter = { link = "Special" }
     groups.DashboardFooter = { link = "Comment" }
-      
+
     -- aerial
     groups.AerialLine = { fg = spec.dirtree.curline, bg = none, underline = true }
   end
-    
+
   return groups
 end
 
@@ -341,15 +342,15 @@ function M.get_treesitter(spec)
     ["@lsp.type.enumMember"] = { link = "Constant" },
     ["@lsp.type.function"] = { link = "Function" },
     ["@lsp.type.interface"] = { link = "Structure" },
-    ["@lsp.type.macro"] = { link = "Macro" },
+    ["@lsp.type.macro"] = { link = "Function" },
     ["@lsp.type.method"] = { link = "Function" },
     ["@lsp.type.namespace"] = { link = "Structure" },
     ["@lsp.type.parameter"] = { fg = spec.syntax.parameter, italic = true },
-    ["@lsp.type.property"] = { link = "Constant" },
+    ["@lsp.type.property"] = { link = "Identifier" },
     ["@lsp.type.struct"] = { link = "Structure" },
     ["@lsp.type.type"] = { link = "Type" },
     ["@lsp.type.typeParameter"] = { link = "Type" },
-    ["@lsp.type.variable"] = { link = "Constant" },
+    ["@lsp.type.variable"] = { link = "Identifier" },
 
     -- Misc
     ["@comment"] = { link = "@lsp.type.comment" },
@@ -377,7 +378,7 @@ function M.get_treesitter(spec)
     ["@constant.macro"] = { link = "Constant" },
     ["@parameter.reference"] = { link = "@lsp.type.parameter" },
     ["@exception"] = { link = "Exception" },
-    ["@type.builtin"] = { link = "@lsp.type.type" },
+    ["@type.builtin"] = { link = "PrimitiveType" },
 
     -- Typescript
     ["@constant.builtin.typescript"] = { link = "Boolean" },

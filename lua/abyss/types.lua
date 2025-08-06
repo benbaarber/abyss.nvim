@@ -48,7 +48,8 @@
 ---@field identifier string Identifiers
 ---@field func string Function names and directory names
 ---@field statement string Conditionals and loops
----@field type string Types
+---@field type string Custom types
+---@field primitivetype string Primitive types
 ---@field structure string Objects, classes names
 ---@field regex string Regex
 ---@field special string Special characters
@@ -72,7 +73,7 @@
 ---@class AbyssDirtree
 ---@field rootname string
 ---@field dirname string
----@field curline string
+---@field curlinebg string
 
 ---@class AbyssTerminal
 ---@field color0 string
@@ -95,18 +96,12 @@
 ---@class AbyssLualine
 ---@field basebg_b string
 ---@field basebg_c string
----@field base_fg string
----@field normalfg string
----@field normalbg_a string
----@field visualfg string
----@field visualbg_a string
----@field replacefg string
----@field replacebg_a string
----@field insertfg string
----@field insertbg_a string
----@field commandfg string
----@field commandbg_a string
----@field terminalfg string
----@field terminalbg_a string
----@field inactivefg string
----@field inactivebg_a string
+---@field basefg_b string
+---@field basefg_c string
+---@field normal string
+---@field visual string
+---@field replace string
+---@field insert string
+---@field command string
+---@field terminal string
+---@field inactive string

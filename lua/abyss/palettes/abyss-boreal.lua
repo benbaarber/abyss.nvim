@@ -70,7 +70,7 @@ local spec = {
     linenr = palette.lowgrey,
   },
   syntax = {
-    identifier = palette.fg1,
+    identifier = palette.fg0,
     structure = palette.orange,
     statement = palette.cerulean,
     constant = palette.fg0,
@@ -125,28 +125,28 @@ local spec = {
   lualine = {
     basebg_b = palette.lowgrey,
     basebg_c = palette.black,
-    base_fg = palette.white,
+    basefg_c = palette.white,
 
     normalfg = palette.black,
-    normalbg_a = palette.darkteal,
+    normal = palette.darkteal,
 
     visualfg = palette.black,
-    visualbg_a = palette.coral,
+    visual = palette.coral,
 
     replacefg = palette.black,
-    replacebg_a = palette.darkred,
+    replace = palette.darkred,
 
     insertfg = palette.white,
-    insertbg_a  = palette.darkpurple,
+    insert  = palette.darkpurple,
 
     commandfg = palette.black,
-    commandbg_a = palette.aurorayellow,
+    command = palette.aurorayellow,
 
     terminalfg = palette.black,
-    terminalbg_a = palette.aurorayellow,
+    terminal = palette.aurorayellow,
 
     inactivefg = palette.midblue,
-    inactivebg_a = palette.bg1,
+    inactive = palette.bg1,
 
   },
 }
