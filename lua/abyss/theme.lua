@@ -78,9 +78,9 @@ function M.get(user_opts, spec)
     diffIndexLine = { link = "diffLine" },
 
     -- Neovim v0.10 diff highlights
-    Added = { bg = spec.diff.added },
-    Changed = { bg = spec.diff.changed },
-    Removed = { bg = spec.diff.deleted },
+    Added = { fg = spec.diff.added },
+    Changed = { fg = spec.diff.changed },
+    Removed = { fg = spec.diff.deleted },
 
     healthError = { fg = spec.diagnostics.error },
     healthSuccess = { fg = spec.diagnostics.ok },
@@ -104,7 +104,7 @@ function M.get(user_opts, spec)
     FoldColumn = { link = "CursorColumn" },
     SignColumn = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
 
-    CurSearch = { fg = spec.base.bg0, bg = spec.editor.match_selected, bold = true, underline = true },
+    CurSearch = { bg = spec.editor.match_selected, bold = true, underline = true },
     IncSearch = { link = "CurSearch" },
     Substitute = { link = "Search" },
 
@@ -120,8 +120,8 @@ function M.get(user_opts, spec)
 
     Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
     NormalNC = { link = "Normal" },
-    NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg1 },
-    FloatBorder = { link = "NormalFloat" },
+    NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg0 },
+    FloatBorder = { fg = spec.base.fg0, bg = spec.base.bg1 },
 
     Pmenu = { fg = spec.base.fg0, bg = spec.base.bg00 },
     PmenuSbar = { bg = spec.base.bg00 },
@@ -132,7 +132,7 @@ function M.get(user_opts, spec)
 
     QuickFixLine = { link = "CursorLine" },
 
-    Search = { fg = spec.base.bg0, bg = spec.editor.match },
+    Search = { bg = spec.editor.match },
     SpecialKey = { link = "NonText" },
 
     SpellBad = { fg = spec.diagnostics.error, undercurl = true },
@@ -345,7 +345,7 @@ function M.get_treesitter(spec)
     ["@lsp.type.macro"] = { link = "Function" },
     ["@lsp.type.method"] = { link = "Function" },
     ["@lsp.type.namespace"] = { link = "Structure" },
-    ["@lsp.type.parameter"] = { fg = spec.syntax.parameter, italic = true },
+    ["@lsp.type.parameter"] = { fg = spec.syntax.parameter },
     ["@lsp.type.property"] = { link = "Identifier" },
     ["@lsp.type.struct"] = { link = "Structure" },
     ["@lsp.type.type"] = { link = "Type" },
@@ -379,6 +379,11 @@ function M.get_treesitter(spec)
     ["@parameter.reference"] = { link = "@lsp.type.parameter" },
     ["@exception"] = { link = "Exception" },
     ["@type.builtin"] = { link = "PrimitiveType" },
+
+    -- Rust
+    ["@lsp.type.decorator.rust"] = { link = "@lsp.type.macro" },
+    ["@lsp.mod.callable.rust"] = { link = "@lsp.type.function" },
+    ["@lsp.mod.associated.rust"] = { link = "@lsp.type.type" },
 
     -- Typescript
     ["@constant.builtin.typescript"] = { link = "Boolean" },
