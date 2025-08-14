@@ -64,10 +64,10 @@ function M.get(user_opts, spec)
 
     Directory = { link = "Function" },
 
-    DiffAdd = { fg = spec.diff.added },
-    DiffChange = { fg = spec.diff.changed },
-    DiffDelete = { fg = spec.diff.deleted },
-    DiffText = { fg = spec.diff.text },
+    DiffAdd = { bg = spec.diff.added },
+    DiffChange = { bg = spec.diff.changed },
+    DiffDelete = { bg = spec.diff.deleted },
+    DiffText = { bg = spec.diff.text },
     diffAdded = { link = "DiffAdd" },
     diffRemoved = { link = "DiffDelete" },
     diffChanged = { link = "DiffChange" },
@@ -77,10 +77,15 @@ function M.get(user_opts, spec)
     diffLine = { link = "diffFile" },
     diffIndexLine = { link = "diffLine" },
 
+    DiffAddFg = { fg = spec.diff.addedfg },
+    DiffChangeFg = { fg = spec.diff.changedfg },
+    DiffDeleteFg = { fg = spec.diff.deletedfg },
+    DiffTextFg = { fg = spec.diff.textfg },
+
     -- Neovim v0.10 diff highlights
-    Added = { fg = spec.diff.added },
-    Changed = { fg = spec.diff.changed },
-    Removed = { fg = spec.diff.deleted },
+    Added = { fg = spec.diff.addedfg },
+    Changed = { fg = spec.diff.changedfg },
+    Removed = { fg = spec.diff.deletedfg },
 
     healthError = { fg = spec.diagnostics.error },
     healthSuccess = { fg = spec.diagnostics.ok },
@@ -171,9 +176,9 @@ function M.get(user_opts, spec)
 
     -- Vim-compatible plugins --
     -- git gutter
-    GitGutterAdd = { link = "DiffAdd" },
-    GitGutterChange = { link = "DiffChange" },
-    GitGutterDelete = { link = "DiffDelete" },
+    GitGutterAdd = { link = "DiffAddFg" },
+    GitGutterChange = { link = "DiffChangeFg" },
+    GitGutterDelete = { link = "DiffDeleteFg" },
     GitGutterChangeDelete = { link = "GitGutterDelete" },
   }
 
@@ -301,7 +306,7 @@ function M.get(user_opts, spec)
     groups.NeoTreeRootName = { fg = spec.dirtree.rootname }
     groups.NeoTreeDirectoryName = { fg = spec.dirtree.dirname }
     groups.NeoTreeDirectoryIcon = { fg = spec.dirtree.dirname }
-    groups.NeoTreeGitUntracked = { fg = spec.diff.untracked, italic = true }
+    groups.NeoTreeGitUntracked = { fg = spec.diff.untrackedfg, italic = true }
     groups.NeoTreeCursorLine = { bg = spec.dirtree.curlinebg }
 
     -- notify
@@ -324,6 +329,14 @@ function M.get(user_opts, spec)
 
     -- aerial
     groups.AerialLine = { fg = spec.dirtree.curline, bg = none, underline = true }
+
+    -- diffview
+    groups.DiffviewFilePanelInsertions = { link = "DiffAddFg" }
+    groups.DiffviewFilePanelDeletions = { link = "DiffDeleteFg" }
+    groups.DiffviewStatusModified = { link = "DiffChangeFg" }
+    groups.DiffviewStatusUntracked = { fg = spec.diff.untrackedfg }
+    groups.DiffviewStatusAdded = { link = "DiffAddFg" }
+    groups.DiffviewStatusDeleted = { link = "DiffDeleteFg" }
   end
 
   return groups

@@ -22,7 +22,11 @@ local palette = {
   heavyyellow = "#FFEEBB",
   white = "#FFFFFF",
   black = "#000000",
-  cyan = "#27b5c4"
+  cyan = "#27b5c4",
+  diffadd = "#162416",
+  diffchange = "#24221f",
+  difftext = "#363227",
+  diffdelete = "#241616",
 }
 
 ---The updated documentation of each property is in types.lua
@@ -67,11 +71,16 @@ local spec = {
     parameter = palette.shinyblue,
   },
   diff = {
-    added = palette.green,
-    changed = palette.yellow,
-    deleted = palette.red,
-    text = palette.red,
-    untracked = palette.orange,
+    added = palette.diffadd,
+    changed = palette.diffchange,
+    deleted = palette.diffdelete,
+    text = palette.difftext,
+    untracked = palette.lowgrey,
+    addedfg = palette.green,
+    changedfg = palette.yellow,
+    deletedfg = palette.red,
+    textfg = palette.red,
+    untrackedfg = palette.orange,
   },
   diagnostics = {
     error = palette.red,
@@ -113,11 +122,10 @@ local spec = {
     normal = palette.shinyblue,
     visual = palette.orange,
     replace = palette.purple,
-    insert  = palette.heavyyellow,
+    insert = palette.heavyyellow,
     command = palette.pink,
     terminal = palette.green,
     inactive = palette.midblue,
-
   },
 }
 
