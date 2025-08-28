@@ -396,7 +396,7 @@ function M.get_treesitter(spec)
     -- Rust
     ["@lsp.type.decorator.rust"] = { link = "@lsp.type.macro" },
     ["@lsp.mod.callable.rust"] = { link = "@lsp.type.function" },
-    ["@lsp.mod.associated.rust"] = { link = "@lsp.type.type" },
+    ["@lsp.type.typeAlias.rust"] = { link = "@lsp.type.type" },
 
     -- Typescript
     ["@constant.builtin.typescript"] = { link = "Boolean" },
