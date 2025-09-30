@@ -126,7 +126,7 @@ function M.get(user_opts, spec)
     Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
     NormalNC = { link = "Normal" },
     NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg0 },
-    FloatBorder = { fg = spec.base.fg0, bg = spec.base.bg1 },
+    FloatBorder = { fg = spec.base.fg0, bg = spec.base.bg0 },
 
     Pmenu = { fg = spec.base.fg0, bg = spec.base.bg00 },
     PmenuSbar = { bg = spec.base.bg00 },
