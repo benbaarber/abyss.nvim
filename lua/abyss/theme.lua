@@ -31,7 +31,7 @@ function M.get(user_opts, spec)
     PreProc = { link = "Statement" },
     Operator = { fg = spec.syntax.statement },
 
-    PrimitiveType = { fg = spec.syntax.primitivetype, italic = true },
+    PrimitiveType = { fg = spec.syntax.primitivetype },
     Type = { link = "Structure" },
     StorageClass = { link = "Statement" }, -- Volatile keywords
     Structure = { fg = spec.syntax.structure },
@@ -395,8 +395,11 @@ function M.get_treesitter(spec)
 
     -- Rust
     ["@lsp.type.decorator.rust"] = { link = "@lsp.type.macro" },
-    ["@lsp.mod.callable.rust"] = { link = "@lsp.type.function" },
     ["@lsp.type.typeAlias.rust"] = { link = "@lsp.type.type" },
+    ["@function.macro.rust"] = { link = "Statement" },
+
+    -- Python
+    ["@attribute.python"] = { link = "Function" },
 
     -- Typescript
     ["@constant.builtin.typescript"] = { link = "Boolean" },
@@ -407,6 +410,7 @@ function M.get_treesitter(spec)
     ["@repeat"] = { link = "Statement" },
     ["@conditional"] = { link = "Statement" },
     ["@type.qualifier"] = { link = "Statement" },
+    ["@storageclass"] = { link = "StorageClass" },
 
     -- HTML
     ["@tag"] = { link = "Statement" },
